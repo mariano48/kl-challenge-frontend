@@ -1,50 +1,62 @@
-# React + TypeScript + Vite
+# SF Movie Locations UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is part of the Kindalab code challenge. It is a user interface for displaying movie filming locations in San Francisco.
 
-Currently, two official plugins are available:
+### Tools:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Typescript
+- React
+- React query
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Follow these steps to get the project up and running:
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone the repository:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+  git clone https://github.com/mariano48/kl-challenge-frontend.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Navigate to the project directory:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+cd kl-challenge-frontend
+```
+
+3. Install dependencies:
+
+```
+npm install
+```
+
+## Running the application
+
+To start the development server, run:
+
+```
+npm run dev
+```
+
+This will start the app in development mode. Open http://localhost:8000 to view it in your browser.
+
+## Environment variables
+
+The following environment variables must be set:
+
+| Variable Name         | Description              | Default Value           | Required |
+| --------------------- | ------------------------ | ----------------------- | -------- |
+| `API_BASE_URL`        | The base URL for the API | `http://localhost:9000` | Yes      |
+| `GOOGLE_MAPS_API_KEY` | Google Maps API Key      |                         | Yes      |
+
+You can create a `.env` file at the root of the project:
+
+```
+API_BASE_URL=http://localhost:9000
+GOOGLE_MAPS_KEY=your-google-maps-api-key
+```
+
+## Scripts
+
+- Start dev server: `npm run dev`
+- Run tests: `npm run test`
