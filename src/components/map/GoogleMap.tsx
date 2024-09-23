@@ -1,6 +1,6 @@
 import { Map } from "@vis.gl/react-google-maps";
 import { IMovie } from "../../types/Movies";
-import CustomMarker from "./MarkerWithInfo";
+import GoogleMarker from "./GoogleMarker";
 import { useState } from "react";
 import { SAN_FRANCISCO_CENTER } from "../../constants/constants";
 
@@ -28,7 +28,7 @@ export default function GoogleMap({ movies }: IMapProps) {
           {movies.map((movie, i) => {
             if (typeof movie.geolocation === "string") return null;
             return (
-              <CustomMarker
+              <GoogleMarker
                 key={i}
                 movie={movie}
                 isOpen={openMovieView === i}
