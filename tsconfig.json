@@ -21,7 +21,8 @@
       "@components/*": ["./src/components/*"],
       "@configs/*": ["./src/configs/*"],
       "@pages/*": ["./src/pages/*"]
-    }
+    },
+    "types": ["node", "cypress"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
