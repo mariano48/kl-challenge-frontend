@@ -12,7 +12,8 @@
     "cy:open-unit": "cypress open --component --browser chrome",
     "cy:run-e2e": "cypress run --e2e",
     "cy:run-unit": "cypress run --component",
-    "cy:e2e": "start-server-and-test dev http://localhost:8000 cy:open-e2e"
+    "cy:e2e": "start-server-and-test dev http://localhost:8000 cy:open-e2e",
+    "cy:test": "start-server-and-test dev http://localhost:8000 cypress run --e2e --headless"
   },
   "dependencies": {
     "@vis.gl/react-google-maps": "^1.2.0",
