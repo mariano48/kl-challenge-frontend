@@ -6,17 +6,19 @@ interface IMarkerWithInfoProps {
   movie: IMovie;
   isOpen: boolean;
   onMarkerClick: () => void;
+  onMarkerClose: () => void;
 }
 
 export default function GoogleMarker({
   movie,
   isOpen,
   onMarkerClick,
+  onMarkerClose,
 }: IMarkerWithInfoProps) {
   return (
     <div className="text-black" data-cy="marker">
       <Marker position={movie.geolocation} onClick={onMarkerClick} />
-      {isOpen && <MovieLocationInfo movie={movie} />}
+      {isOpen && <MovieLocationInfo movie={movie} onClose={onMarkerClose} />}
     </div>
   );
 }

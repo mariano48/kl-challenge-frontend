@@ -33,6 +33,7 @@ export default function GoogleMap({ movies }: IMapProps) {
                 movie={movie}
                 isOpen={openMovieView === i}
                 onMarkerClick={() => handleMarkerClick(i)}
+                onMarkerClose={() => setOpenMovieView(null)}
               />
             );
           })}
