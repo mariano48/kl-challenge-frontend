@@ -3,9 +3,13 @@ import { InfoWindow } from "@vis.gl/react-google-maps";
 
 interface IMovieLocationInfoProps {
   movie: IMovie;
+  onClose: () => void;
 }
 
-export default function MovieLocationInfo({ movie }: IMovieLocationInfoProps) {
+export default function MovieLocationInfo({
+  movie,
+  onClose,
+}: IMovieLocationInfoProps) {
   return (
     <InfoWindow
       position={movie.geolocation}
@@ -13,6 +17,7 @@ export default function MovieLocationInfo({ movie }: IMovieLocationInfoProps) {
         <h2 className="text-black font-bold text-lg">{movie.locations}</h2>
       }
       style={{ color: "black" }}
+      onClose={onClose}
     >
       <div className="flex flex-col gap-1 text-lg">
         <p className="font-bold text-lg">Movie: {movie.title}</p>
