@@ -8,12 +8,12 @@ import SuggestionContainer from "./SuggestionContainer";
 export default function SearchBar() {
   const [title, setTitle] = useState<string>("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const { data, isLoading, refetch } = useSuggestions(title);
+  const [disableSearchButton, setDisableSearchButton] = useState(true);
+  const { data, refetch } = useSuggestions(title);
   const {
     moviesMutation: { mutate },
   } = useMovies();
   const debouncedInputValue = useDebounce(title, 300);
-  const disableSearchButton = !title || isLoading;
 
   useEffect(() => {
     if (!data) return;
@@ -37,6 +37,7 @@ export default function SearchBar() {
         onSearch={() => {
           setShowSuggestions(false);
           mutate(title);
+          setDisableSearchButton(true);
         }}
       />
       {showSuggestions && data && (
@@ -45,6 +46,7 @@ export default function SearchBar() {
           handleSuggestionClick={(value: string) => {
             setTitle(value);
             setShowSuggestions(false);
+            setDisableSearchButton(false);
           }}
         />
       )}
