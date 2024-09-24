@@ -4,7 +4,7 @@ import GoogleMap from "./GoogleMap";
 export default function MapContainer() {
   const API_KEY = process.env.GOOGLE_MAPS_API_KEY;
   const {
-    moviesQuery: { data: movies, isLoading },
+    moviesQuery: { data: movies, isLoading, isError },
   } = useMovies();
 
   return (
@@ -16,7 +16,7 @@ export default function MapContainer() {
           <GoogleMap movies={movies} />
         </APIProvider>
       )}
-      {!movies && !isLoading && (
+      {isError && !isLoading && (
         <p data-cy="no-movies-found">No movies found</p>
       )}
     </div>
